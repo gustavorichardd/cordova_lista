@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exercicio 3</title>
+</head>
+<body> 
+  <div class="root">
+    <a href="../index.html">Return</a>
+    <div class="inputs">
+      <label for="estoqueNow">Saldo atual do estoque</label>
+      <input type="number" name="estoqueNow" id="estoqueNow">
+  
+      <label for="estoqueMax">Estoque Máximo</label>
+      <input type="number" name="estoqueMax" id="estoqueMax">
+  
+      <label for="estoqueMin">Estoque Mínimo</label>
+      <input type="number" name="estoqueMin" id="estoqueMin">
+    </div>
+
+    <div class="painel">
+      <button onclick="mediaEstoque()">Calcular!</button>
+      <h4>Média do Estoque:</h2>
+      <p id='estoqueFinal'>A calcular...</p>
+    </div>
+
+    
+  </div>
+
+  <script>
+    function mediaEstoque() {
+      var estoqueNow = +document.getElementById('estoqueNow').value;
+      var estoqueMedia = (+document.getElementById('estoqueMax').value + +document.getElementById('estoqueMin').value) / 2
+
+      document.getElementById('estoqueFinal').textContent = estoqueMedia;
+
+      if (estoqueNow >= estoqueMedia ) {
+        alert('Não efetuar compra!')
+      } else {
+        alert('Efetuar compra!')
+      }
+    }
+  </script>
+  
+</body>
+</html>
+
+<!--
+  3) Faça um algoritmo para ler: quantidade atual em estoque, quantidade máxima em estoque e quantidade mínima em estoque de um produto. 
+  Calcular e escrever a quantidade média ((quantidade média = quantidade máxima + quantidade mínima)/2). 
+  Se a quantidade em estoque for maior ou igual a quantidade média escrever a mensagem 'Não efetuar compra', 
+  senão escrever a mensagem 'Efetuar compra'. 
+-->

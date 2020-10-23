@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exercicio 1</title>
+
+</head>
+<body>
+  <div class="root">
+    <a href="../index.html">Return</a>
+    <div class="inputs">
+      <label for="salario">Insira o Salário</label>
+      <input type="number" name="salario" id="salario">
+      <label for="vendas">Insira as vendas</label>
+      <input type="number" name="vendas" id="vendas">
+
+      <button onclick="calcularSalario()" >CALCULAR</button>
+    </div>
+
+    <div class="painel">
+
+      <h2>Salário Final</h2>
+      <p id='final'></p>
+      
+    </div>
+  </div>
+
+  <script>
+    function calcularSalario() {
+      var salario = +document.getElementById('salario').value;
+      var vendas = +document.getElementById('vendas').value;
+      var salFinal = 0;
+
+      if (vendas > 1500) {
+        salFinal = (((vendas - 1500) * 0.05) + 45) + salario
+      } else {
+        salFinal = (vendas * 0.03) + salario
+      }
+      document.getElementById('final').textContent = +salFinal;
+    }
+  </script>
+</body>
+</html>
+
+
+<!--
+  1) Ler o salário fixo e o valor das vendas efetuadas pelo vendedor de uma empresa. 
+  Sabendo-se que ele recebe uma comissão de 3% sobre o total das vendas até R$ 1.500,00 mais 5% sobre o
+  que ultrapassar este valor, calcular e escrever o seu salário total. 
+
+  vendas > 1500 = ((vendas - 1500) * 0.05) + 45
+-->

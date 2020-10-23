@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 6</title>
+  </head>
+
+  <body>
+    <div class="root">
+      <a href="../index.html">Return</a>
+      <div class="inputs">
+        <label for="codigo"> Digite o código do empregado </label>
+        <input type="number" name="codigo" id="codigo" />
+
+        <label for="anoNasc"> Digite o ano de nascimento: </label>
+        <input type="number" name="anoNasc" id="anoNasc" />
+
+        <label for="anoIngresso"> Digite o ano de ingresso na empresa: </label>
+        <input type="number" name="anoIngresso" id="anoIngresso" />
+
+        <button onclick="calcula()">Calcule!</button>
+      </div>
+
+      <div class="painel">
+        <h2>Idade:</h2>
+        <p id="idade"></p>
+
+        <h2>Tempo de trabalho:</h2>
+        <p id="tempoTrab"></p>
+
+        <h2>Resultado:</h2>
+        <p id="resultado"></p>
+      </div>
+    </div>
+
+    <script>
+      function calcula() {
+        let anoNasc = +document.getElementById("anoNasc").value;
+        let anoIngresso = +document.getElementById("anoIngresso").value;
+        var idade = 2020 - anoNasc;
+        var tempoTrab = 2020 - anoIngresso;
+
+        document.getElementById("idade").textContent = idade;
+        document.getElementById("tempoTrab").textContent = tempoTrab;
+
+        if (idade >= 65 || tempoTrab >= 30) {
+          document.getElementById("resultado").textContent = "Requerer aposentadoria";
+        } else if (idade >= 60 && tempoTrab >= 25) {
+          document.getElementById("resultado").textContent = "Requerer aposentadoria";
+        } else {
+          document.getElementById("resultado").textContent = "Não requerer aposentadoria";
+        }
+      }
+    </script>
+  </body>
+</html>
+
+<!-- 6) Uma empresa quer verificar se um empregado está qualificado para a aposentadoria ou
+não. Para estar em condições, um dos seguintes requisitos deve ser satisfeito:
+- Ter no mínimo 65 anos de idade.
+- Ter trabalhado no mínimo 30 anos.
+- Ter no mínimo 60 anos e ter trabalhado no mínimo 25 anos.
+Com base nas informações acima, faça um algoritmo que leia: o número do empregado
+(código), o ano de seu nascimento e o ano de seu ingresso na empresa. O programa
+deverá escrever a idade e o tempo de trabalho do empregado e a mensagem 'Requerer
+aposentadoria' ou 'Não requerer'. -->

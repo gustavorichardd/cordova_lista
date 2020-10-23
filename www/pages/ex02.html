@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 2</title>
+  </head>
+  <body>
+    <div class="root">
+      <a href="../index.html">Return</a>
+      <div class="inputs">
+        <label for="conta">Número da conta</label>
+        <input type="number" name="conta" id="conta" value='123'/>
+        <br/>
+        <label for="saldo">Saldo</label>
+        <input type="number" name="saldo" id="saldo"  />
+        <label for="credito">Créditos</label>
+        <input type="number" name="credito" id="credito" />
+        <label for="debito">Débitos</label>
+        <input type="number" name="debito" id="debito" />
+      </div>
+      <br/>
+      <button onclick="pegaConta()">CALCULAR CONTA</button>
+
+      <div id="values">
+        <p id='saldoFinal'>A calcular...</p>
+      </div>
+
+    </div>
+
+    <script>
+      function pegaConta() {
+
+        var saldoFinal = +document.getElementById("saldo").value 
+          - +document.getElementById("debito").value
+          + +document.getElementById("credito").value;
+
+        document.getElementById('saldoFinal').textContent = saldoFinal;
+
+        if (saldoFinal > 0) {
+          alert('Saldo Positivo')
+        } else {
+          alert('Saldo Negativo')
+        }
+
+      }
+    </script>
+  </body>
+</html>
+
+<!--
+  2) Faça um algoritmo para ler: número da conta do cliente, saldo, débito e crédito. 
+  Após, calcular e escrever o saldo atual (saldo atual = saldo - débito + crédito). 
+  Também testar se saldo atual for maior ou igual a zero escrever a mensagem 'Saldo Positivo',
+  senão escrever a mensagem 'Saldo Negativo'.
+-->

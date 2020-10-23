@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 5</title>
+  </head>
+  <body>
+    <div class="root">
+      <a href="../index.html">Return</a>
+      <label for="produto"> Nome do Produto </label>
+      <input type="text" id="produto" name="produto" />
+      <br />
+      <label for="quantidade"> Quantidade de itens comprados</label>
+      <input type="number" id="quantidade" name="quantidade" />
+      <br />
+      <label for="preco"> Preço por item</label>
+      <input type="number" id="preco" name="preco" />
+      <br />
+    </div>
+    <div class="results">
+      <h1>Valor total:</h1>
+
+      <h4>Detlahes do produto:</h4>
+      <p id="produtoVenda">Finalizando venda...</p>
+
+      <h4>Total a pagar:</h4>
+      <p id="valorFinal">A calcular...</p>
+    </div>
+    <button onclick="calcularVenda()">FINALIZAR VENDA</button>
+
+    <script>
+      function calcularVenda() {
+        var produto = document.getElementById("produto").value;
+        var quantidade = +document.getElementById("quantidade").value;
+        var preco = +document.getElementById("preco").value;
+        var pagar = 0;
+
+        if (quantidade <= 5) {
+            pagar = preco * 0.98
+        } else if (quantidade > 5 && quantidade < 11) {
+            pagar = preco * 0.97
+        } else if (quantidade > 10) {
+          pagar = preco * 0.95
+        }
+
+        document.getElementById("produtoVenda").textContent = produto;
+        document.getElementById("valorFinal").textContent = pagar;
+      }
+    </script>
+  </body>
+</html>
+
+<!--
+5) Faça um algoritmo para ler: a descrição do produto (nome), a quantidade adquirida e o
+preço unitário. Calcular e escrever o total (total = quantidade adquirida * preço unitário), o
+desconto e o total a pagar (total a pagar = total - desconto), sabendo-se que:
+- Se quantidade <= 5 o desconto será de 2%
+- Se quantidade > 5 e quantidade <=10 o desconto será de 3%
+- Se quantidade > 10 o desconto será de 5%
+
+-->

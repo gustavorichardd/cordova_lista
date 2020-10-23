@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="root">
+      <a href="../index.html">Return</a>
+      <div class="salario">
+        <label for="salarioHora">Valor da hora trabalhada</label>
+        <input type="number" name="salarioHora" id="salarioHora" value='15'/>
+      </div>
+      <br />
+      <div class="input-hora-semana">
+        <label for="horasUm">Horas Semana 01</label>
+        <input type="number" name="horasUm" id="horasUm" value='40'/>
+
+        <label for="horasDois">Horas Semana 02</label>
+        <input type="number" name="horasDois" id="horasDois" value='40' />
+        <br />
+        <label for="horasTres">Horas Semana 03</label>
+        <input type="number" name="horasTres" id="horasTres"  value='40' />
+
+        <label for="horasQuatro">Horas Semana 04</label>
+        <input type="number" name="horasQuatro" id="horasQuatro" value='40' />
+      </div>
+
+      <div class="results">
+        <h3>Horas trabalhadas no mês</h3>
+        <p id="textHorasTrabalhadas">A calcular...</p>
+        <button onclick="somarHoras()">SOMAR HORAS</button>
+
+        <h3>Salário Final</h3>
+        <p id="salarioFinalResultado">A calcular...</p>
+        <button onclick="calcularSalario()">CALCULAR SALÁRIO</button>
+      </div>
+    </div>
+
+    <script>
+      const valorHora = +document.getElementById("salarioHora").value;
+      var salarioTotal = 0;
+
+      function somarHoras() {
+        var horasTotais =
+          +document.getElementById("horasUm").value +
+          +document.getElementById("horasDois").value +
+          +document.getElementById("horasTres").value +
+          +document.getElementById("horasQuatro").value;
+
+        document.getElementById("textHorasTrabalhadas").textContent = horasTotais;
+      }
+
+      function calcularHoraExtra(horas) {
+        var horaExtras = horas - 40;
+        var valorHoraExtra = horaExtras * (valorHora * 1.5);
+        return valorHoraExtra;
+      }
+
+        
+      function calcularSalario() {
+        var horasMes = [
+          +document.getElementById("horasUm").value,
+          +document.getElementById("horasDois").value,
+          +document.getElementById("horasTres").value,
+          +document.getElementById("horasQuatro").value,
+        ];
+        
+        var i = 0;
+        while (i < 4) {
+          console.log('i = ', i)
+          if (horasMes[i] > 40) {
+            salarioTotal += calcularHoraExtra(horasMes[i]) + (40 * valorHora);
+          } else {
+            salarioTotal += (horasMes[i] * valorHora);
+          }
+          i++;
+        }
+        document.getElementById("salarioFinalResultado").textContent = salarioTotal
+      }
+    </script>
+  </body>
+</html>
+
+<!--
+  4)A jornada de trabalho semanal de um funcionário é de 40 horas.
+  O funcionário que trabalhar mais de 40 horas receberá hora extra, cujo cálculo é o valor da hora regular com um acréscimo de 50%.
+  Escreva um algoritmo que leia o número de horas trabalhadas em um mês, o salário por hora e 
+  escreva o salário total do funcionário, que deverá ser acrescido das horas extras,
+  caso tenham sido trabalhadas (considere que o mês possua 4 semanas exatas).
+-->
